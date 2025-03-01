@@ -1,0 +1,169 @@
+/* General Styles */
+/* Specific Headings Color Adjustment */
+h1, h2 {
+    color: #121212; /* Bright yellow for contrast against the background */
+    text-shadow: #060502 20px; /* Shadow for readability */
+    font-size: 40px;
+    -webkit-text-stroke: 0.5px rgb(2, 1, 1);
+}
+#uni{
+    color: #141413; /* Bright yellow for contrast against the background */
+    text-shadow: #d7c4c4 20px; /* Shadow for readability */
+    font-size: 30px;
+    -webkit-text-stroke: px rgb(237, 237, 237);
+}
+
+/* Example class if headings are wrapped in specific classes */
+.browse-collection-heading, .category-description {
+    color: #141413;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    text-shadow: #995353 20px;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #cdcdcd;
+    color: #333;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Make header sticky */
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Menu Styles */
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.menu li {
+    position: relative;
+    margin: 0 15px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    transition: background 0.3s, color 0.3s;
+}
+
+.menu a:hover {
+    background-color: #575757;
+    color: #ffcc00; /* Highlight color on hover */
+}
+
+/* Submenu Styles */
+.submenu {
+    display: none; /* Hide by default */
+    position: absolute;
+    background-color: #444;
+    list-style-type: none;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.submenu li {
+    margin: 5px 0;
+}
+
+.menu li:hover .submenu {
+    display: block; /* Show on hover */
+}
+
+.submenu a {
+    padding: 8px 15px;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.submenu a:hover {
+    background-color: #575757;
+    color: #ffcc00; /* Highlight color on hover */
+}
+
+/* Main and Footer Styles */
+main {
+    padding: 80px 20px 50px; /* Add padding for fixed header */
+    text-align: center;
+    /* background: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover; */
+    background-color: #f4f4f4;
+}
+
+.car-section {
+    margin-top: 40px;
+}
+
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.car-card {
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.car-card img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.details-button {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.details-button:hover {
+    background-color: #575757;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Animation */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in.show {
+    opacity: 1;
+}
