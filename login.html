@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - RevBuy</title>
+    <link rel="stylesheet" href="3.css">
+</head>
+<body>
+    <header>
+        <div class="logo">RevBuy<span class="logo-dot">.</span>com</div>
+        <nav>
+            <ul class="menu">
+                <li><a href="1.html">Home</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main style="margin-top:100px;display:flex;justify-content:center;align-items:center;min-height:60vh;">
+        <form id="login-form" style="background:#fff;padding:2rem 2.5rem;border-radius:12px;box-shadow:0 4px 24px rgba(44,62,80,0.08);min-width:320px;">
+            <h2 style="margin-bottom:1.5rem;">Login to RevBuy</h2>
+            <div style="margin-bottom:1rem;">
+                <label for="login-email">Email</label><br>
+                <input type="email" id="login-email" required style="width:100%;padding:0.7rem;margin-top:0.3rem;">
+            </div>
+            <div style="margin-bottom:1.5rem;">
+                <label for="login-password">Password</label><br>
+                <input type="password" id="login-password" required style="width:100%;padding:0.7rem;margin-top:0.3rem;">
+            </div>
+            <button type="submit" class="details-button" style="width:100%;">Login</button>
+            <p id="login-msg" style="color:red;margin-top:1rem;"></p>
+            <p style="margin-top:1rem;font-size:0.95em;">Don't have an account? <a href="register.html">Register</a></p>
+        </form>
+    </main>
+    <footer style="text-align:center;margin-top:2rem;opacity:0.8;">
+        <p>&copy; 2025 RevBuy. All rights reserved.</p>
+    </footer>
+    <script>
+    document.getElementById('login-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+        const msgDiv = document.getElementById('login-msg');
+        msgDiv.textContent = '';
+        try {
+            const res = await fetch('http://localhost:5000/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
+            const data = await res.json();
+            if (data.token) {
+                localStorage.setItem('token', data.token);
+                window.location.href = '1.html';
+            } else {
+                msgDiv.textContent = data.error || 'Invalid credentials.';
+            }
+        } catch (err) {
+            msgDiv.textContent = 'Failed to login.';
+        }
+    });
+    </script>
+</body>
+</html>
