@@ -1,4 +1,4 @@
-// Handles login, registration, and review form logic for 1.html
+// Handles login, registration, and review form logic for index.html
 
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.getElementById('login-form');
